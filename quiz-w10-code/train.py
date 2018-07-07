@@ -57,8 +57,17 @@ with tf.Session() as sess:
 
             ##################
             # Your Code here
+	    '''
+	    sample_len = dl.shape[1]
+            dl_index = utils.index_data(dl, dictionary)
+
+            d_index = dl_index[:, :sample_len - 1]
+            l_index = dl_index[:, 1:]
+            feed_dict = {model.X: d_index, model.Y: l_index,
+                         model.state_tensor: state, model.keep_prob: 0.5}
+	    '''
             ##################
-			feed_dict = {model.X:dl[0], model.Y:dl[1], model.keep_prob: 0.8, model.state_tensor:state}
+	    feed_dict = {model.X:dl[0], model.Y:dl[1], model.keep_prob: 0.8, model.state_tensor:state}
 
             gs, _, state, l, summary_string = sess.run(
                 [model.global_step, model.optimizer, model.outputs_state_tensor, model.loss, model.merged_summary_op], feed_dict=feed_dict)
