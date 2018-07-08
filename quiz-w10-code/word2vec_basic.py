@@ -221,8 +221,8 @@ with tf.Session(graph=graph) as session:
     saver.restore(session, ckpt_path)
   else:
     # We must initialize all variables before we use them.
-	init.run()
-	print('Initialized')
+    init.run()
+    print('Initialized')
 
   average_loss = 0
   for step in xrange(num_steps):
