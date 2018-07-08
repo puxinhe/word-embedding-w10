@@ -54,7 +54,7 @@ def maybe_download(filename, expected_bytes):
 
 filename = maybe_download('text8.zip', 31344016)
 '''
-filename = 'quiz-w10-code/QuanSongCi.txt'
+filename = 'QuanSongCi.txt'
 # Read the data into a list of strings.
 
 def read_data(filename):
